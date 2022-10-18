@@ -13,3 +13,8 @@ class CreateBlog_page(generic.CreateView):
     fields = ['title', 'body']
     template_name = 'crud/create_page.html'
     success_url = reverse_lazy('home')
+
+
+class DetailBlog_page(generic.DetailView):
+    model = Blog
+    template_name = 'crud/detail_page.html'

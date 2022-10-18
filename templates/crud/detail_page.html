@@ -1,0 +1,10 @@
+{% extends 'crud/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>{{ blog.title }}</h2>
+        <p>{{ blog.body }}</p>
+        <h6>Date created: {{ blog.create_date }}</h6>
+        <h6>Date updated: {{ blog.update_date }}</h6>
+    </div>
+{% endblock %}
