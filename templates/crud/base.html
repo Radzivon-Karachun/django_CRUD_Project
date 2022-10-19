@@ -19,7 +19,7 @@
         <a class="btn btn-outline-primary" href="{% url 'home' %}">HOME</a>
         <a class="btn btn-outline-primary" href="{% url 'create_blog_page' %}">CREATE</a>
         <a class="btn btn-outline-primary" href="{% url 'detail_blog_page' 1 %}">READ</a>
-        <a class="btn btn-outline-primary" href="">UPDATE</a>
+        <a class="btn btn-outline-primary" href="{% url 'update_blog_page' 1 %}">UPDATE</a>
         <a class="btn btn-outline-danger" href="">DELETE</a>
     </nav>
 </div>
