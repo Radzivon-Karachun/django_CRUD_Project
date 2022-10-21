@@ -11,4 +11,6 @@ urlpatterns = [
          name='detail_blog_page'),
     path('<int:pk>/update/', views.UpdateBlog_page.as_view(),
          name='update_blog_page'),
+    path('<int:pk>/delete/', views.DeleteBlog_page.as_view(),
+         name='delete_blog_page'),
 ]
