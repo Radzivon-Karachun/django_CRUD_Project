@@ -5,7 +5,11 @@ from .models import Blog
 
 
 def home(request):
-    return render(request, 'crud/home.html')
+    blogs = Blog.objects.order_by('-create_date')
+    context = {
+        'blogs': blogs,
+    }
+    return render(request, 'crud/home.html', context)
 
 
 class CreateBlog_page(generic.CreateView):
