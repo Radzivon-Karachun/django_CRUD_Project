@@ -16,9 +16,9 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <h5 class="my-0 mr-md-auto font-weight-normal">C.R.U.D.</h5>
     <nav class="my-2 my-md-0 mr-md-3">
-        <a class="btn btn-outline-primary" href="#">REGISTER</a>
-        <a class="btn btn-outline-primary" href="#">LOG IN</a>
-        <a class="btn btn-outline-danger" href="#">LOG OUT</a>
+        <a class="btn btn-outline-primary" href="{% url 'signup_page' %}">REGISTER</a>
+        <a class="btn btn-outline-primary" href="{% url 'login_page' %}">LOG IN</a>
+        <a class="btn btn-outline-danger" href="{% url 'logout_page' %}">LOG OUT</a>
     </nav>
     <nav class="my-2 my-md-0 mr-md-3">
         <a class="btn btn-outline-primary" href="{% url 'home' %}">HOME</a>
