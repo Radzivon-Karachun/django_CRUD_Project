@@ -2,17 +2,21 @@
 
 {% block content %}
     <div class="container">
-        <h2>HOME</h2><br>
+        <h4>HOME PAGE</h4><br>
         {% for blog in blogs %}
-            <h2>{{ blog.title }}</h2><br>
-            <h6>{{ blog.body|truncatechars:255 }}</h6><br>
-            <a class="btn btn-outline-primary" href="{% url 'detail_blog_page' blog.id %}">Read</a>
-            <a class="btn btn-outline-primary" href="{% url 'update_blog_page' blog.id %}">Update</a>
-            <a class="btn btn-outline-danger" href="{% url 'delete_blog_page' blog.id %}">Delete</a>
-            <p>
-                <small>{{ blog.create_date }}</small>
-                <small>{{ blog.update_date }}</small><br><br>
-            </p>
+
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ blog.title }}</h5>
+                    {#                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>#}
+                    <p class="card-text">{{ blog.body|truncatechars:255 }}</p>
+                    <a class="btn btn-outline-primary" href="{% url 'detail_blog_page' blog.id %}">Read</a>
+                    <a class="btn btn-outline-primary" href="{% url 'update_blog_page' blog.id %}">Update</a>
+                    <a class="btn btn-outline-danger" href="{% url 'delete_blog_page' blog.id %}">Delete</a>
+                </div>
+            </div>
+
+            <br>
         {% endfor %}
     </div>
 {% endblock %}
