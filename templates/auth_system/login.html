@@ -3,5 +3,35 @@
 {% block content %}
     <div class="container">
         <h2>LOGIN</h2>
+
+        {% if error %}
+            <div class="alert alert-danger">
+                {{ error }}<br>
+            </div>
+        {% endif %}
+
+        {% if next %}
+            <div class="alert alert-warning">
+                {{ next }}<br>
+            </div>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            User name:<br>
+            <label>
+                <input type="text" name="username">
+            </label><br><br>
+            Password:<br>
+            <label>
+                <input type="password" name="password">
+            </label><br><br>
+
+            {% if nextURL %}
+                <input type="hidden" name="redir" value="{{ nextURL }}">
+            {% endif %}
+
+            <input class="btn btn-primary" type="submit" value="LOGIN">
+        </form>
     </div>
 {% endblock %}

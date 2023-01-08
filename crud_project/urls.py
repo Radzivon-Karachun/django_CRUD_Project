@@ -1,6 +1,6 @@
 from django.urls import path
 from crud_project.views import home, CreateBlog_page, DetailBlog_page, UpdateBlog_page, DeleteBlog_page
-from auth_system.views import signup_page, login_page, logout_page
+from auth_system.views import signup_page, login_page, logout_page, public_page, private_page, PrivateClass_page
 
 
 urlpatterns = [
@@ -21,4 +21,11 @@ urlpatterns = [
          name='login_page'),
     path('logout', logout_page,
          name='logout_page'),
+
+    path('publicpage', public_page,
+         name='public_page'),
+    path('privatepage', private_page,
+         name='private_page'),
+    path('privateclasspage', PrivateClass_page.as_view(),
+         name='privateclass_page'),
 ]

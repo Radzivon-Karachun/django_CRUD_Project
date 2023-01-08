@@ -24,13 +24,28 @@
 
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="{% url 'home' %}" class="nav-link active" aria-current="page">HOME</a></li>
-            <li class="nav-item"><a href="{% url 'create_blog_page' %}" class="nav-link">CREATE</a></li>
-            <li class="nav-item"><a href="{% url 'signup_page' %}" class="btn btn-outline-primary">REGISTER</a></li>
-            <li class="nav-item"><a href="{% url 'login_page' %}" class="btn btn-outline-primary">LOG IN</a></li>
-            <li class="nav-item"><a href="{% url 'logout_page' %}" class="btn btn-outline-danger">LOG OUT</a></li>
+
+            {% if user.is_authenticated %}
+                <li class="nav-item"><a href="{% url 'create_blog_page' %}" class="nav-link">CREATE</a></li>
+                <li class="nav-item"><a href="{% url 'private_page' %}" class="nav-link">Hi, {{ request.user.username }}!</a></li>
+                <li class="nav-item"><a href="JavaScript:{document.getElementById('logout').submit()}"
+                                        class="btn btn-outline-danger">LOG OUT</a></li>
+            {% else %}
+                <li class="nav-item"><a href="{% url 'signup_page' %}" class="nav-link">REGISTER</a></li>
+                <li class="nav-item"><a href="{% url 'login_page' %}" class="nav-link">LOG IN</a></li>
+            {% endif %}
         </ul>
+        {% if user.is_authenticated %}
+            <form id="logout" method="POST" action="{% url 'logout_page' %}">
+                {% csrf_token %}
+                <input type="hidden">
+            </form>
+        {% endif %}
     </header>
 </div>
+
+
+
 
 
 <!-- Optional JavaScript -->
