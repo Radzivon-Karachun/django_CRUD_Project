@@ -21,3 +21,4 @@ Project structure:
     └── manage.py
 
 ```
+test
